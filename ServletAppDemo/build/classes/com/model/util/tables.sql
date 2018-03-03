@@ -31,5 +31,10 @@ CREATE TABLE IF NOT EXISTS CITY(
 	PRIMARY KEY(Id)
 ) ENGINE=InnoDB;
 
+-- endpoint: mysqldb.covrvaofu1mm.us-east-1.rds.amazonaws.com
+-- username: tecgurus
+-- schema: cursojava
+-- password: password
+
 
 
