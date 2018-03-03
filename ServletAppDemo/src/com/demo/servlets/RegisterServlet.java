@@ -41,7 +41,8 @@ public class RegisterServlet extends HttpServlet {
 		user.setEmail(request.getParameter("email"));
 		user.setAge(Integer.parseInt(request.getParameter("age")));
 		user.setAddress(request.getParameter("address"));
-		
+		user.setState("Nuevo Leon");
+		user.setCity("Apodaca");
 		String hashedPassword = UtilFunctions.hash(request.getParameter("password"));
 		user.setPassword(hashedPassword);
 		
