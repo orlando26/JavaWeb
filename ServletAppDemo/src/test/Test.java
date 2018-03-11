@@ -2,8 +2,11 @@ package test;
 
 import java.util.List;
 
+import com.demo.dao.CityDAO;
 import com.demo.dao.StateDAO;
+import com.demo.daoimpl.CityDAOImpl;
 import com.demo.daoimpl.StateDAOImpl;
+import com.demo.model.City;
 import com.demo.model.State;
 
 public class Test {
@@ -15,6 +18,11 @@ public class Test {
 			System.out.println(state.getName());
 		}
 		
+		CityDAO cityDao = new CityDAOImpl();
+		List<City> cities = cityDao.findAllByStateId(28);
+		for (City city : cities) {
+			System.out.println(city.getName());
+		}
 		
 	}
 }

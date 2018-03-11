@@ -3,7 +3,7 @@
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-	<session-factory name="HibernateSession">
+	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.password">16119321o</property>
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/login</property>
@@ -32,6 +32,6 @@
 
 		<mapping class="com.demo.model.User" />
 		<mapping class="com.demo.model.State" /> 
-		<!-- <mapping class="com.demo.model.City" /> -->
+		<mapping class="com.demo.model.City" />
 	</session-factory>
 </hibernate-configuration>

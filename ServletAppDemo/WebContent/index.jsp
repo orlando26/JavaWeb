@@ -11,16 +11,21 @@
 	</header>
 	<article>
 	<div class="container">
-		<div class="jumbotron">
+		<form action="/ServletAppDemo/LoginServlet">
+			<div class="jumbotron">
 			<div class="form-group">
-				<label for="usr">Username:</label> <input type="text"
+				<label for="usr">Username:</label> <input type="text" name="email"
 					class="form-control" id="usr">
 			</div>
 			<div class="form-group">
-				<label for="pwd">Password:</label> <input type="password"
+				<label for="pwd">Password:</label> <input type="password" name="password"
 					class="form-control" id="pwd">
 			</div>
+			
+			<button class="btn btn-lg btn-outline-primary btn-block"type="submit">Sign in</button>
+			<a class="btn btn-lg btn-primary btn-outline-danger btn-block" href="register.jsp">Register</a>
 		</div>
+		</form>
 	</div>
 	</article>
 	<footer> <%@ include file="template/footer.jsp"%>
