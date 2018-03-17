@@ -42,7 +42,6 @@ public class LoginServlet extends HttpServlet {
 		try{
 			User user = userDao.findUserByEmail(email);
 			if(password.equals(user.getPassword())){
-				System.out.println("coincide");
 				response.sendRedirect("home.jsp");
 			}
 		}catch(IndexOutOfBoundsException e){

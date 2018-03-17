@@ -21,27 +21,27 @@
 					<tbody>
 						<tr>
 							<td>Name:</td>
-							<td><input type="text" name="name" /></td>
+							<td><input type="text" name="name" class="form-control form-control-lg"/></td>
 						</tr>
 
 						<tr>
 							<td>Last Name:</td>
-							<td><input type="text" name="lastName" /></td>
+							<td><input type="text" name="lastName" class="form-control form-control-lg"/></td>
 						</tr>
 
 						<tr>
 							<td>Email:</td>
-							<td><input type="text" name="email" /></td>
+							<td><input type="text" name="email" class="form-control form-control-lg"/></td>
 						</tr>
 
 						<tr>
 							<td>Age:</td>
-							<td><input type="text" name="age" /></td>
+							<td><input type="text" name="age" class="form-control form-control-lg"/></td>
 						</tr>
 
 						<tr>
 							<td>Address:</td>
-							<td><input type="text" name="address" /></td>
+							<td><input type="text" name="address" class="form-control form-control-lg"/></td>
 						</tr>	
 						
 						<tr>
@@ -66,13 +66,13 @@
 
 						<tr>
 							<td>Password:</td>
-							<td><input type="password" name="password" /></td>
+							<td><input type="password" name="password" class="form-control form-control-lg"/></td>
 						</tr>
 
 						<tr>
 							<td>&nbsp;</td>
-							<td><input type="submit" name="btnRegister" value="Register" />&nbsp;
-								<input type="reset" name="btnClear" value="Clear" /></td>
+							<td><button type="submit" class="btn btn-outline-primary">Register</button>&nbsp;
+								<a class="btn btn-outline-danger" href="index.jsp" role="button">Cancel</a></td>
 						</tr>
 					</tbody>
 				</table>
