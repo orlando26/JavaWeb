@@ -18,7 +18,7 @@ function cityDropdown(id){
 		console.log(citiesArr);
 		$.each(citiesArr, function(key, value){
 			$('#cities_select').append($("<option/>",{
-				value: key,
+				value: value.name,
 				text: value.name
 			}));
 		});

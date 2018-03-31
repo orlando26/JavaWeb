@@ -15,19 +15,19 @@ import com.demo.model.User;
 import com.model.util.UtilFunctions;
 
 /**
- * Servlet implementation class RegisterServlet
+ * Servlet implementation class UpdateServlet
  */
-@WebServlet("/RegisterServlet")
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/UpdateServlet")
+public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegisterServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UpdateServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,7 +35,8 @@ public class RegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		User user = new User();
-		
+
+		user.setId(Integer.parseInt(request.getParameter("id")));
 		user.setName(request.getParameter("name"));
 		user.setLastName(request.getParameter("lastName"));
 		user.setEmail(request.getParameter("email"));
@@ -43,15 +44,17 @@ public class RegisterServlet extends HttpServlet {
 		user.setAddress(request.getParameter("address"));
 		user.setState(request.getParameter("state"));
 		user.setCity(request.getParameter("city"));
+
 		String hashedPassword = UtilFunctions.hash(request.getParameter("password"));
 		user.setPassword(hashedPassword);
-		
-		System.out.println(user.toString());
-		
+
 		UserDAO userDao = new UserDaoImpl();
-		userDao.insert(user);
-		
-		response.sendRedirect("index.jsp");
+		System.out.println("updating user" + user.getName());
+		userDao.updateUser(user);
+
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();	
+		response.sendRedirect("home.jsp");
 	}
 
 	/**

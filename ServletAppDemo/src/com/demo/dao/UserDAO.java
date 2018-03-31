@@ -1,5 +1,7 @@
 package com.demo.dao;
 
+import java.util.List;
+
 import com.demo.model.User;
 
 public interface UserDAO {
@@ -8,6 +10,12 @@ public interface UserDAO {
 	
 	public User findUserByEmail(String email);
 	
-	public void delete(User user);
+	public List<User> getAllUsers();
+	
+	public void deleteUser(User user);
+	
+	public void updateUser(User user);
+	
+	public User findById(int id);
 
 }

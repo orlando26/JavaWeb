@@ -34,4 +34,20 @@ public class HibernateSession {
 	public static void setSession(Session session){
 		HibernateSession.session = session;
 	}
+	
+	public static void deleteObject(Object object){
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.delete(object);
+		session.getTransaction().commit();
+		session.close();
+	}
+	
+	public static void updateObject(Object object){
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.update(object);
+		session.getTransaction().commit();
+		session.close();
+	}
 } 

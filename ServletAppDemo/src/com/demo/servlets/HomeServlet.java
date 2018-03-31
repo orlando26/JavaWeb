@@ -1,8 +1,6 @@
 package com.demo.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,19 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 import com.demo.dao.UserDAO;
 import com.demo.daoimpl.UserDaoImpl;
 import com.demo.model.User;
-import com.model.util.UtilFunctions;
 
 /**
- * Servlet implementation class RegisterServlet
+ * Servlet implementation class HomeServlet
  */
-@WebServlet("/RegisterServlet")
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/HomeServlet")
+public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisterServlet() {
+    public HomeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,24 +31,12 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		User user = new User();
+		response.setContentType("text/html");
 		
-		user.setName(request.getParameter("name"));
-		user.setLastName(request.getParameter("lastName"));
-		user.setEmail(request.getParameter("email"));
-		user.setAge(Integer.parseInt(request.getParameter("age")));
-		user.setAddress(request.getParameter("address"));
-		user.setState(request.getParameter("state"));
-		user.setCity(request.getParameter("city"));
-		String hashedPassword = UtilFunctions.hash(request.getParameter("password"));
-		user.setPassword(hashedPassword);
-		
-		System.out.println(user.toString());
-		
+		int userId = Integer.parseInt(request.getParameter("userId"));
 		UserDAO userDao = new UserDaoImpl();
-		userDao.insert(user);
-		
-		response.sendRedirect("index.jsp");
+		User user = userDao.findById(userId);
+		userDao.deleteUser(user);
 	}
 
 	/**
