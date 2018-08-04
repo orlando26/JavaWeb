@@ -11,8 +11,8 @@
 	
 	<article>
 		<div class="container">
-			
-			<div class="form-group">
+			<form method="POST" action="/WebProject/RegisterServlet">
+				<div class="form-group">
 				<label for="name">Name:</label>
 				<input type="text" name="name" class="form-control" id="name">
 			</div>
@@ -34,22 +34,22 @@
 			
 			<div class="form-group">
 				<label for="address">Address:</label>
-				<input type="text" name="name" class="form-control" id="address">
+				<input type="text" name="address" class="form-control" id="address">
 			</div>
 			
 			<div class="form-group">
 				<label for="name">Password:</label>
-				<input type="text" name="password" class="form-control" id="password">
+				<input type="password" name="password" class="form-control" id="password">
 			</div>
 			
 			<div class="form-group">
 				<label for="confirm-password">Confirm Password:</label>
-				<input type="text" name="confirm-password" class="form-control" id="confirm-password">
+				<input type="password" name="confirm-password" class="form-control" id="confirm-password">
 			</div>
 			
-			<button class="btn btn-lg btn-outline-primary">Register</button>
+			<button type="submit" class="btn btn-lg btn-outline-primary">Register</button>
 			<a class="btn btn-lg btn-outline-danger" href="../index.jsp" role="button">Cancel</a>
-			
+			</form>
 		</div>
 	</article>
 	
