@@ -25,5 +25,37 @@ public class City {
 
 	@Column(name = "LastModified")
 	private Date lastModified;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getIdState() {
+		return idState;
+	}
+
+	public void setIdState(Integer idState) {
+		this.idState = idState;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Date getLastModified() {
+		return lastModified;
+	}
+
+	public void setLastModified(Date lastModified) {
+		this.lastModified = lastModified;
+	}
 	
 }

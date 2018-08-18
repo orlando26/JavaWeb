@@ -12,16 +12,16 @@ import com.orlando.daoimpl.PersonDAOImpl;
 import com.orlando.model.Person;
 
 /**
- * Servlet implementation class RegisterServlet
+ * Servlet implementation class LoginServlet
  */
-@WebServlet("/RegisterServlet")
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisterServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,38 +30,24 @@ public class RegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("name");
-		String lastName = request.getParameter("lastname");
+		response.setContentType("text/html");
+		
 		String email = request.getParameter("email");
-		int age = Integer.parseInt(request.getParameter("age"));
-		String address = request.getParameter("address");
-		String state = request.getParameter("state");
-		String city = request.getParameter("city");
 		String password = request.getParameter("password");
-		String confirmPassword = request.getParameter("confirm-password");
 		
-		Person person = new Person();
+		PersonDAO personDao = new PersonDAOImpl();
 		
-		if(password.equals(confirmPassword)){
-			person.setName(name);
-			person.setLastName(lastName);
-			person.setEmail(email);
-			person.setAge(age);
-			person.setState(state);
-			person.setCity(city);
-			person.setAddress(address);
-			person.setPassword(password);
-			
-			System.out.println(person);
-			PersonDAO personDao = new PersonDAOImpl();
-			personDao.insert(person);
-		}else{
-			System.out.println("Passwords doesnt match");
+		try{
+			Person person = personDao.findByEmail(email);
+			if(password.equals(person.getPassword())){
+				response.sendRedirect("/WebProject/pages/home.jsp");
+			}else{
+				System.out.println("Password is invalid!");
+			}
+		}catch(IndexOutOfBoundsException e){
+			System.out.println("User doesnt exist!!!!");
 		}
 		
-		
-		
-		response.sendRedirect("/WebProject/index.jsp");
 	}
 
 	/**
