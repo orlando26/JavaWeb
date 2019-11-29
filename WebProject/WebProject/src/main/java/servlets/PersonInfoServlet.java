@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.PersonDao;
+import dao.PersonDaoImpl;
 import model.Person;
 
 
@@ -35,6 +37,9 @@ public class PersonInfoServlet extends HttpServlet {
 		person.setEmail(request.getParameter("email"));
 		person.setAge( Integer.parseInt(request.getParameter("age")) );
 		
+		
+		PersonDao personDao = new PersonDaoImpl();
+		personDao.insert(person);
 		System.out.println(person);
 		
 		out.println("<h3>Reading Data using 'getParameter(String name):String' method</h3>");

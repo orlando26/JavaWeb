@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>servlets.PersonInfoServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>OperationsServlet</servlet-name>
+  	<display-name>OperationsServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.OperationsServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>PersonInfoServlet</servlet-name>
   	<url-pattern>/PersonInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OperationsServlet</servlet-name>
+  	<url-pattern>/OperationsServlet</url-pattern>
   </servlet-mapping>
 </web-app>

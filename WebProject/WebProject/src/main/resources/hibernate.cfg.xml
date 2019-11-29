@@ -5,9 +5,9 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.password"></property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/javaweb</property>
-		<property name="hibernate.connection.username">admin</property>
+		<property name="hibernate.connection.password">tecgurusPass</property>
+		<property name="hibernate.connection.url">jdbc:mysql://aws-tecgurus.covrvaofu1mm.us-east-1.rds.amazonaws.com:3306/javaweb</property>
+		<property name="hibernate.connection.username">tecgurus</property>
 		<property name="hibernate.default_schema">javaweb</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 

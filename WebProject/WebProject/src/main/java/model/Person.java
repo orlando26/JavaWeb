@@ -1,14 +1,43 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "person")
 public class Person {
 	
+	//CRUD(Create, Read, Update, Delete)
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "Id")
+	private Integer id;
+	
+	@Column(name = "Name")
 	private String name;
 	
+	@Column(name = "LastName")
 	private String lastName;
 	
+	@Column(name = "Email")
 	private String email;
 	
+	@Column(name = "Age")
 	private Integer age; //wrapper classes
+	
+	
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
@@ -44,8 +73,11 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Persona [name=" + name + ", lastName=" + lastName + ", email=" + email + ", age=" + age + "]";
+		return "Person [id=" + id + ", name=" + name + ", lastName=" + lastName + ", email=" + email + ", age=" + age
+				+ "]";
 	}
+
+	
 	
 	
 	
